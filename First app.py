@@ -23,7 +23,7 @@ ask_button = st.button("Ask question")
 if ask_button and "" != query.strip:
     try:
         with st.spinner("please wait ..."):
-            API_KEY = "AQ.Ab8RN6Ks-i9UQSw-rXgqsc0gFMsj8JTtjjWgM1UkHQKjhqZ0Hw"
+            API_KEY = st.secrets["GEMINI_API_KEY"]
             client = genai.Client(api_key=API_KEY)
 
             response = client.models.generate_content(
